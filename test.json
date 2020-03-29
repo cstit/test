@@ -1,0 +1,66 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "DT - Fiscalización - Remuneraciones API Empleador",
+        "version": "1.0.0",
+        "description": "API disponible para efectos de remuneraciones, proceso de fiscalización correspondiente a toda la información del empleador",
+        "contact": {
+            "email": "cquezada@redhat.com"
+        }
+    },
+    "paths": {
+        "/fiscalizacion/remuneracion/empleador/{rut}": {
+            "get": {
+                "responses": {
+                    "200": {
+                        "content": {
+                            "text/xml": {
+                                "examples": {
+                                    "Encontrado": {
+                                        "value": "Empleador Encontrado"
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Empleador Validado"
+                    },
+                    "201": {
+                        "content": {
+                            "text/xml": {
+                                "examples": {
+                                    "Creado": {
+                                        "value": "Empleador Creado"
+                                    }
+                                }
+                            }
+                        },
+                        "description": "Empleador Creado"
+                    }
+                },
+                "summary": "Valida el rut del empleador",
+                "description": "Metodo que permite validar el empleador em la BD del LRE. "
+            },
+            "parameters": [
+                {
+                    "name": "rut",
+                    "description": "Rut del Empleador",
+                    "in": "path",
+                    "required": true
+                }
+            ]
+        }
+    },
+    "components": {
+
+    },
+    "tags": [
+        {
+            "name": "declaracion",
+            "description": "Representación del libro de remuneraciones como condición del mismo"
+        },
+        {
+            "name": "notificacion",
+            "description": "Notificaciones respecto al libro y estado de la declaración"
+        }
+    ]
+}
